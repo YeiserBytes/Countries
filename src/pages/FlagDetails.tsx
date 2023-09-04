@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom";
-import countries from "../assets/data.json";
-import type { CountriesTypes } from "../types/countries.d";
 import { useDarkMode } from "usehooks-ts";
+import countries from "../assets/data.json";
+import type { CountriesTypes } from "../types/types";
+import { BackButton } from '../Components/Icons';
 
 export default function FlagDetails() {
   const { countryName } = useParams();
@@ -16,33 +17,14 @@ export default function FlagDetails() {
     return <div>País no encontrado</div>;
   }
 
+  const background = isDarkMode ? "bg-very-dark-blue text-white" : "bg-white text-black"
+  const buttonBackground = isDarkMode ? "bg-dark-blue text-white" : "bg-white text-black"
+
   return (
-    <main
-      className={`${
-        isDarkMode ? "bg-white text-black" : "bg-very-dark-blue text-white"
-      } h-screen flex flex-col items-start`}
-    >
+    <main className={`${background} h-screen flex flex-col items-start`}>
       <Link to="/" className="flex">
-        <button
-          className={`${
-            isDarkMode ? "bg-white text-black" : "bg-dark-blue text-white"
-          } mx-20 mt-32 flex items-center gap-1 mb-16 text-sm px-5 py-1 rounded-sm shadow-[0_0_4px_0_rgba(0,0,0,0.5)]`}
-          type="button"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
+        <button className={`${buttonBackground} mx-20 mt-32 flex items-center justify-center gap-1 mb-16 text-sm px-5 py-1 rounded-sm shadow-[0_0_4px_0_rgba(0,0,0,0.5)]`} type="button">
+          <BackButton />
           Back
         </button>
       </Link>
@@ -100,14 +82,9 @@ export default function FlagDetails() {
             <b className="font-semibold">Border Countries: </b>
             <div className="flex gap-2">
               {country?.borders?.map((name) => {
+                const background =isDarkMode ? "bg-dark-blue text-white" : "bg-white text-black"
                 return (
-                  <p
-                    className={`${
-                      isDarkMode
-                        ? "bg-white text-black"
-                        : "bg-dark-blue text-white"
-                    } flex items-center text-sm px-5 py-0 rounded-sm shadow-[0_0_4px_0_rgba(0,0,0,0.5)]`}
-                  >
+                  <p className={`${background} flex items-center text-sm px-5 py-0 rounded-sm shadow-[0_0_4px_0_rgba(0,0,0,0.5)]`}>
                     {name}
                   </p>
                 );
