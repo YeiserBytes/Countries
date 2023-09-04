@@ -7,16 +7,11 @@ import Flags from "./pages/Flags";
 
 function App() {
   const { isDarkMode, toggle } = useDarkMode();
+  const background = isDarkMode ? "bg-very-dark-blue text-white" : "bg-very-light-gray text-black"
 
   return (
-    <div
-      className={`${
-        isDarkMode
-          ? "bg-very-light-gray text-black"
-          : "bg-very-dark-blue text-white"
-      }`}
-    >
-      <Navbar isDarkMode={!isDarkMode} toggle={toggle} />
+    <div className={background}>
+      <Navbar isDarkMode={isDarkMode} toggle={toggle} />
 
       <Routes>
         <Route path="/" Component={Flags} />
