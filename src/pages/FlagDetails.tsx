@@ -28,17 +28,17 @@ export default function FlagDetails() {
           Back
         </button>
       </Link>
-      <header className="flex gap-36 justify-center items-center mx-20">
-        <figure className="h-full w-1/2">
+      <header className="flex max-sm:flex-col max-sm:w-screen max-sm:h-[100dvh] overflow-hidden gap-36 justify-center items-center md:mx-20">
+        <figure className="h-full md:w-1/2 max-sm:max-w-sm">
           <img
             src={country.flags.svg}
             className="object-cover h-full w-full shadow-md"
             alt={`Flag by ${country.name}`}
           />
         </figure>
-        <div className="flex flex-col gap-5 w-[1000px]">
+        <div className="flex flex-col md:gap-5 max-sm:w-full md:w-[1000px]">
           <h2 className="font-bold text-3xl">{country.name}</h2>
-          <section className="flex gap-44">
+          <section className="flex max-sm:flex-col max-sm:justify-between md:gap-44 max-sm:j max-sm:items-center">
             <div className="flex flex-col gap-3">
               <p>
                 <b className="font-semibold">Native Name: </b>
