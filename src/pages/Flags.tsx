@@ -20,7 +20,7 @@ export default function Flags() {
   const background = isDarkMode ? "bg-dark-blue text-white" : "bg-white text-black"
 
   return (
-    <main className="flex flex-col gap-5 h-full">
+    <main className="container flex flex-col gap-5 h-full">
       <div className="mt-24 flex flex-row sm:items-center sm:max-w-64 justify-between md:mx-[55px] sm:mx-4">
         <div className={`${background} flex justify-center sm:py-1 items-center px-2 py-3 rounded`}>
           <label htmlFor="search">
@@ -47,9 +47,8 @@ export default function Flags() {
           .map((country) => {
             const { alpha3Code, name, flags, population, region, capital, translations } = country;
             return (
-              <Link to={`/${translations.es.toLowerCase()}`}>
+              <Link key={alpha3Code} to={`/${translations.es.toLowerCase()}`}>
                 <Card
-                  key={alpha3Code}
                   name={name}
                   flags={flags}
                   population={population}
