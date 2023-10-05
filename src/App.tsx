@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 import FlagDetails from "./pages/FlagDetails";
 import Flags from "./pages/Flags";
 
-function App() {
+export default function App() {
   const { isDarkMode, toggle } = useDarkMode();
   const background = isDarkMode ? "bg-very-dark-blue text-white" : "bg-very-light-gray text-black"
 
@@ -20,5 +20,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
