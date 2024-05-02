@@ -1,5 +1,5 @@
-import { useDarkMode } from "usehooks-ts";
-import type { CountriesDetails } from "../types/types.d";
+import { useDarkMode } from 'usehooks-ts'
+import type { CountriesDetails } from '../types/types.d'
 
 export default function Card({
   flags,
@@ -8,19 +8,19 @@ export default function Card({
   region,
   capital,
 }: CountriesDetails) {
-  const { isDarkMode } = useDarkMode();
+  const { isDarkMode } = useDarkMode()
 
-  const background = isDarkMode ? "bg-dark-blue" : "bg-white"
+  const background = isDarkMode ? 'bg-dark-blue' : 'bg-white'
 
   return (
-    <div className={`${background} max-w-sm shadow-md rounded-md overflow-hidden`}>
-      <figure className="h-[150px] w-full">
-        <img
-          className="object-cover w-full h-full"
-          src={flags.svg}
-          alt={`country: ${name}`}
-        />
-      </figure>
+    <div
+      className={`${background} max-w-sm shadow-md rounded-md overflow-hidden`}
+    >
+      <img
+        className="object-cover aspect-video"
+        src={flags.svg}
+        alt={`country: ${name}`}
+      />
       <div className="px-6">
         <h2 className="mt-4 mb-3 text-xl font-bold tracking-tight">{name}</h2>
         <div>
@@ -36,5 +36,5 @@ export default function Card({
         </div>
       </div>
     </div>
-  );
+  )
 }
